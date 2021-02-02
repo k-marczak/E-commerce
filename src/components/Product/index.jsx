@@ -34,7 +34,7 @@ import {
             </Typography>
           </CardContent>
         </CardActionArea>
-          <CardActions>
+          <CardActions className="actions-content">
             <>
                 <Typography
                 className="price"
