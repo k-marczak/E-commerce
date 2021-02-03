@@ -1,6 +1,7 @@
 import { Grid, Container } from '@material-ui/core';
 import Product from '../Product'
 import Banner from '../Banner'
+import './style.css'
 
 
 const Products = ({ products }) => {

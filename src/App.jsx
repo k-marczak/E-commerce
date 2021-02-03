@@ -4,6 +4,8 @@ import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Products from './components/Products';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+
 
 
 
@@ -11,18 +13,26 @@ import NavBar from './components/NavBar';
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [basketData, setBasketData] = useState([]);
 
   const fetchProducts = async () => {
     const response = await commerce.products.list();
     setProducts((response && response.data) || []);
   };
 
+  const fetchBasketData = async () => {
+    const response = await commerce.cart.retrieve();
+    setBasketData(response);
+  };
+
   useEffect(() => {
     fetchProducts();
+    fetchBasketData();
   }, []);
 
   
 
+  
 
   return (
     <Router>
@@ -33,6 +43,7 @@ const App = () => {
               <Products products={products} />
             </Route>
           </Switch>
+          <Footer />
       </div>
     </Router>
   )
