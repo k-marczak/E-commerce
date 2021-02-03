@@ -10,7 +10,7 @@ import {
   import { ShoppingCart } from "@material-ui/icons";
   import "./style.css";
   
-  const Product = ({ product, addProduct = () => {} }) => (
+  const Product = ({ product, addProduct }) => (
     
       <Card className="custom-card">
         <CardActionArea>
@@ -48,7 +48,7 @@ import {
                 size='large'
                 className='custom-button'
                 onClick={() => {
-                    addProduct(produt.id, 1);
+                    addProduct(product.id, 1);
                 }}
             >
                 <ShoppingCart /> Add to basket
