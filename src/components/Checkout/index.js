@@ -2,6 +2,8 @@ import { Paper, Container, Typography, CircularProgress } from '@material-ui/cor
 import {useState, useEffect, useRef} from 'react';
 import { commerce } from '../../lib/commerce';
 import CheckoutForm from './CheckoutForm';
+import BookingDetails from './BookingDetails';
+import {renderRelatedComponent} from './helpers'
 import './style.css'
 
 const convertObjectToArray = (countries) =>
@@ -35,7 +37,7 @@ const Checkout = ({ basketData }) => {
     shippingSubdivision: {},
     shippingSubdivisions: [],
   });
-    
+    const [bookingStep, setBookingStep] = useState("order-address");
     const [checkoutData, setCheckoutData] = useState({});
     const previousShippingCountry = usePreviousState(user.shippingCountry);
     const previousShippingSubdivision = usePreviousState(
@@ -69,6 +71,7 @@ const Checkout = ({ basketData }) => {
 
     const handleSubmit=(e) => {
       e.preventDefault();
+      setBookingStep("order-details");
     }
 
     useEffect(() => {
@@ -172,6 +175,16 @@ const Checkout = ({ basketData }) => {
   // ]);
 
 
+    const handleNextStep = (e, step) => {
+      e.preventDefault();
+      setBookingStep(step);
+    }
+
+    const handleBackStep = (e, step) => {
+      e.preventDefault();
+      setBookingStep(step);
+    }
+
     if (
       !user.shippingSubdivisions.length ||
       !user.shippingCountries.length ||
@@ -199,7 +212,17 @@ const Checkout = ({ basketData }) => {
                 <Typography align="center" variant="h5" gutterBottom>
                   Checkout
                 </Typography>
-                <CheckoutForm user={user} handleSubmit={handleSubmit} handleChange={handleChange} handleSelectChange={handleSelectChange} />
+                {renderRelatedComponent({
+                  user,
+                  bookingStep,
+                  handleChange,
+                  handleSubmit,
+                  checkoutData,
+                  handleBackStep,
+                  handleNextStep,
+        
+                  handleSelectChange,
+                })}
               </Paper>
             </Container>
           
