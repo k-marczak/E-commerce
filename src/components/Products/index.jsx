@@ -1,11 +1,12 @@
 import { Grid, Container } from '@material-ui/core';
 import Product from '../Product'
 import Banner from '../Banner'
+import Spinner from '../Spinner'
 import './style.css'
 
 
 const Products = ({ products, addProduct }) => {
-    console.log("products ===", products);
+    if(!products.length) return <Spinner />
 
     return (
         <div>

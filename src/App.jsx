@@ -6,6 +6,7 @@ import Products from './components/Products';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Basket from './components/Basket';
+import Checkout from './components/Checkout';
 
 
 
@@ -77,6 +78,9 @@ const App = () => {
                 handleEmptyBasket={handleEmptyBasket}
                 RemoveItemFromBasket={RemoveItemFromBasket}
               />
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout basketData={basketData} />
             </Route>
           </Switch>
           <Footer />
