@@ -7,12 +7,12 @@ import {
     Typography,
   } from "@material-ui/core";
   import { ShoppingCart } from "@material-ui/icons";
-  import { Link } from "react-router-dom";
+  import { Link, useLocation } from "react-router-dom";
   
   import "./style.css";
   
   const NavBar = ({ basketItems, totalCost }) => {
-    
+    const location = useLocation();
   
     return (
       <>
@@ -33,6 +33,7 @@ import {
                   className="logo"
                 />
               </Typography>
+
               {location.pathname === "/basket" ? (
                 <div className="basket-wrapper">
                   <h2>
