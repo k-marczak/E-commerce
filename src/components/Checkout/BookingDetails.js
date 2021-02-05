@@ -14,7 +14,7 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
         <ListItem key={item.id}>
           <ListItemText
             primary={item.name}
-            secondary={`Quantity: ${item.quantity}`}
+            secondary={`Ilość: ${item.quantity}`}
           />
           <Typography variant="body2">
             {item.line_total.formatted_with_symbol}
@@ -22,7 +22,7 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
         </ListItem>
       ))}
       <ListItem>
-        <ListItemText primary="Total price" />
+        <ListItemText primary="Cena całkowita:" />
         <Typography variant="body2">
           {checkoutData.live.subtotal.formatted_with_code}
         </Typography>
@@ -35,7 +35,7 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
         onClick={(e) => handleBackStep(e, "order-address")}
         variant="contained"
       >
-        Go Back
+        Cofnij
       </Button>
       <Button
         onClick={(e) => handleNextStep(e, "order-payment")}
@@ -43,7 +43,7 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
         color="secondary"
         variant="contained"
       >
-        Next
+        Dalej
       </Button>
     </div>
   </>

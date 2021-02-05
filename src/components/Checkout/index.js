@@ -6,7 +6,7 @@ import BookingDetails from './BookingDetails';
 import {renderRelatedComponent} from './helpers'
 import './style.css'
 
-const steps = ['order-address', 'order-details', 'order-payment'];
+const steps = ['Adres dostawy', 'Zamówienie', 'Rozliczenie'];
 
 const convertObjectToArray = (countries) =>
   Object.entries(countries || {}).map(([code, name]) => ({ code, name }));
@@ -215,7 +215,7 @@ const Checkout = ({ basketData, handleCheckout, orderInfo, orderError }) => {
             <Container>
               <Paper className="paper" elevation={3}>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Checkout
+                  Podsumowanie
                 </Typography>
                 {bookingStep !== 'confirmation' && (
                   <Stepper

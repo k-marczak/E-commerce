@@ -70,7 +70,7 @@ const Payment = ({
                   variant="outlined"
                   onClick={(e) => handleBackStep(e, "order-details")}
                 >
-                  Back
+                  Cofnij
                 </Button>
                 <Button
                   type="submit"
@@ -78,7 +78,7 @@ const Payment = ({
                   disabled={!stripe}
                   color="primary"
                 >
-                  Pay {checkoutData.live.subtotal.formatted_with_symbol}
+                  Zapłać {checkoutData.live.subtotal.formatted_with_symbol}
                 </Button>
               </div>
             </form>
