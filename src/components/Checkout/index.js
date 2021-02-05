@@ -6,7 +6,7 @@ import BookingDetails from './BookingDetails';
 import {renderRelatedComponent} from './helpers'
 import './style.css'
 
-const steps = ['Adres dostawy', 'Zamówienie', 'Rozliczenie'];
+const steps = ['order-address', 'order-details', 'order-payment'];
 
 const convertObjectToArray = (countries) =>
   Object.entries(countries || {}).map(([code, name]) => ({ code, name }));
@@ -94,8 +94,6 @@ const Checkout = ({ basketData, handleCheckout, orderInfo, orderError }) => {
         generateToken();
       }
     }, [basketData]);
-
-    
 
     useEffect(() => {
       const fetchShippingCountries = async () => {
@@ -215,7 +213,7 @@ const Checkout = ({ basketData, handleCheckout, orderInfo, orderError }) => {
             <Container>
               <Paper className="paper" elevation={3}>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Podsumowanie
+                  Checkout
                 </Typography>
                 {bookingStep !== 'confirmation' && (
                   <Stepper

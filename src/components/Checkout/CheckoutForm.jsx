@@ -24,7 +24,7 @@ const CheckoutForm = ({
           fullWidth
           id="first-name"
           name="firstName"
-          label="Imię"
+          label="First Name"
           value={user.firstName}
           onChange={handleChange}
         />
@@ -35,7 +35,7 @@ const CheckoutForm = ({
           fullWidth
           id="last-name"
           name="lastName"
-          label="Nazwisko"
+          label="First Name"
           value={user.lastName}
           onChange={handleChange}
         />
@@ -59,7 +59,7 @@ const CheckoutForm = ({
           id="address"
           name="address"
           value={user.address}
-          label="Ulica"
+          label="Address line 1"
           onChange={handleChange}
         />
       </Grid>
@@ -69,7 +69,7 @@ const CheckoutForm = ({
           fullWidth
           id="city"
           name="city"
-          label="Miasto"
+          label="City"
           value={user.city}
           onChange={handleChange}
         />
@@ -82,14 +82,14 @@ const CheckoutForm = ({
           name="postCode"
           value={user.postCode}
           onChange={handleChange}
-          label="Kod pocztowy"
+          label="Zip / Postal code"
         />
       </Grid>
 
       <Grid item xs={12} sm={6}>
         <FormControl fullWidth>
           <InputLabel id="shipping-country-select-label">
-            Kraj
+            Shipping Country
           </InputLabel>
           <Select
             required
@@ -111,7 +111,7 @@ const CheckoutForm = ({
       <Grid item xs={12} sm={6}>
         <FormControl fullWidth>
           <InputLabel id="shipping-subdivision-select-label">
-            Region
+            Shipping Subdivision
           </InputLabel>
           <Select
             required
@@ -130,10 +130,7 @@ const CheckoutForm = ({
         </FormControl>
       </Grid>
 
-      <div style={{margin: '20px'}}></div>
-
-
-      {/* <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6}>
         <FormControl fullWidth>
           <InputLabel id="shipping-options-select-label">
             Shipping Options
@@ -153,7 +150,7 @@ const CheckoutForm = ({
             ))}
           </Select>
         </FormControl>
-      </Grid> */}
+      </Grid>
     </Grid>
 
     <div className="actions">
